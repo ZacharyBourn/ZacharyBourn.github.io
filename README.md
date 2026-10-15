@@ -33,9 +33,34 @@ Only an article with `pinned: true` appears as the homepage feature. If more tha
 
 To attach a PDF, put it in `assets/pdfs/` and link with `[Read the full study (PDF)]({{ '/assets/pdfs/filename.pdf' | relative_url }})`. Only do this once you are comfortable publishing the document and any personal details inside it.
 
-## Edit the reading list
+## Add, remove, reorder, and change book covers
 
-Open `_data/books.yml`. Each book needs `title`, `author`, `subject`, and `note`. Books automatically appear on `/reading/`. The three entries are **starter examples**, not final personal reviews.
+Your entire reading list lives in **[_data/books.yml](./_data/books.yml)**.
+
+**From the GitHub website:**
+1. Open the link above, then click the pencil icon (**Edit this file**).
+2. **Add a book:** copy a complete book entry starting with `- order:`, paste it at the bottom, and change the fields.
+3. **Remove a book:** delete the whole entry, including the `- order:` line.
+4. **Reorder books:** edit the `order:` numbers. Lowest number is shown first. You don't need to physically move the entries.
+5. Click **Commit changes**. GitHub Pages will update the public reading page automatically after the build.
+
+Example book entry:
+
+```yaml
+- order: 4
+  title: "Theodore Rex"
+  author: "Edmund Morris"
+  subject: "Presidential Biography"
+  isbn: ""
+  cover: ""
+  note: "Write your own short assessment here."
+```
+
+**Cover images:** Add a valid 10- or 13-digit `isbn` (as a quoted string) and the site will attempt to show that edition's cover via Open Library. If you prefer your exact edition, upload a JPG/PNG/WebP cover image to the repository using **Add file → Upload files**, placing it in `assets/books/`, then set `cover: "/assets/books/your-filename.jpg"`. A full image URL can also be used in `cover`. If both `cover` and `isbn` are filled in, the custom cover takes priority.
+
+If a cover cannot be found, a neutral placeholder appears. Make sure each entry starts with `- order:` and uses consistent indentation. Avoid using unescaped double quotes inside quoted text; apostrophes are fine.
+
+The three included titles are examples, not finished personal endorsements or reviews. Change their notes however you like. A change to `_data/books.yml` updates the catalog without editing HTML or CSS.
 
 ## Customize
 
