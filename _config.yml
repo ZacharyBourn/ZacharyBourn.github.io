@@ -1,0 +1,9 @@
+title: The American Retrospect
+description: Independent historical studies, essays, and personal reflections.
+url: "https://zacharybourn.github.io"
+baseurl: ""
+markdown: kramdown
+permalink: /writing/:title/
+future: false
+exclude:
+  - README.md

@@ -1,43 +1,36 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Historical Studies & Essays</title>
-  <style>
-    body {
-      background: #f7f4ed;
-      color: #252525;
-      font-family: Georgia, serif;
-      margin: 0;
-      line-height: 1.7;
-    }
-    main {
-      max-width: 760px;
-      margin: 100px auto;
-      padding: 0 24px;
-      text-align: center;
-    }
-    h1 { font-size: 2.8rem; }
-    p { font-size: 1.15rem; }
-    hr {
-      border: 0;
-      border-top: 1px solid #c9c1b3;
-      margin: 35px 0;
-    }
-  </style>
-</head>
-<body>
-  <main>
-    <h1>Historical Studies & Essays</h1>
-    <hr>
-    <p>
-      An independent archive dedicated to the study of
-      American history, historical interpretation,
-      and personal reflection.
-    </p>
-    <p>More to come.</p>
-  </main>
-</body>
-</html>
+---
+layout: default
+---
+<section class="intro">
+  <div class="eyebrow">An independent historical archive</div>
+  <h1>History rewards a <em>second look.</em></h1>
+  <p>Research, interpretation, and personal reflections on the people, events, and ideas that shaped the American experience.</p>
+</section>
+{% assign featured = site.posts | where: 'pinned', true | first %}
+<section class="featured" aria-labelledby="featured-heading">
+  <div class="section-kicker"><span id="featured-heading">Featured writing</span><span>01 / Selected study</span></div>
+  {% if featured %}
+    <div class="feature-content">
+      <div><div class="eyebrow">{{ featured.category | replace: '-', ' ' | capitalize }} · {{ featured.date | date: '%B %Y' }}</div><h2><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2><p>{{ featured.subtitle | default: featured.excerpt | strip_html | truncatewords: 35 }}</p><a class="read-link" href="{{ featured.url | relative_url }}">Read article <span aria-hidden="true">↗</span></a></div>
+      <div class="feature-mark" aria-hidden="true">AR<span>EST. 2026</span></div>
+    </div>
+  {% else %}
+    <div class="feature-content">
+      <div><div class="eyebrow">From the research desk</div><h2>Jared Bourne: Legacy and Lineage</h2><p>A study of a seventeenth-century settler, family history, and the site that would become Boston's Liberty Tree. Publication forthcoming after final review.</p><span class="forthcoming">Forthcoming</span></div>
+      <div class="feature-mark" aria-hidden="true">AR<span>EST. 2026</span></div>
+    </div>
+  {% endif %}
+</section>
+<section class="two-up" aria-labelledby="explore-heading">
+  <div class="section-kicker full"><span id="explore-heading">Explore the archive</span><span>Research & commentary</span></div>
+  <a class="category-tile" href="{{ '/studies/' | relative_url }}"><span class="tile-number">01</span><h3>Historical Studies</h3><p>Document-based investigations, historical records, citations, and original research.</p><span class="tile-arrow">Explore →</span></a>
+  <a class="category-tile" href="{{ '/essays/' | relative_url }}"><span class="tile-number">02</span><h3>Essays</h3><p>Interpretations and arguments exploring questions raised by the American past.</p><span class="tile-arrow">Explore →</span></a>
+  <a class="category-tile" href="{{ '/reflections/' | relative_url }}"><span class="tile-number">03</span><h3>Personal Reflections</h3><p>How encounters with history inform, challenge, and reshape understanding.</p><span class="tile-arrow">Explore →</span></a>
+  <a class="category-tile" href="{{ '/reading/' | relative_url }}"><span class="tile-number">04</span><h3>Recommended Reading</h3><p>Books worth considering, with notes on what each contributes to historical study.</p><span class="tile-arrow">Browse books →</span></a>
+</section>
+<section class="latest" aria-labelledby="latest-heading">
+  <div class="section-kicker"><span id="latest-heading">Recent publications</span><span><a href="{{ '/studies/' | relative_url }}">Browse studies ↗</a></span></div>
+  {% if site.posts.size > 0 %}
+    {% for post in site.posts limit: 4 %}<article class="recent-entry"><span class="eyebrow">{{ post.category | capitalize }} · {{ post.date | date: '%b %Y' }}</span><h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3></article>{% endfor %}
+  {% else %}<p class="quiet">The archive is taking shape. Published work will be listed here.</p>{% endif %}
+</section>
