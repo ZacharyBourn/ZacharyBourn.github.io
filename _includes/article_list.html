@@ -1,0 +1,14 @@
+{% assign selected = site.posts | where: 'category', include.category %}
+{% if selected.size > 0 %}
+  <div class="article-list">
+    {% for post in selected %}
+      <article class="list-entry">
+        <div class="eyebrow">{{ post.date | date: '%B %-d, %Y' }}{% if post.pinned %} <span class="sep">·</span> Featured{% endif %}</div>
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        {% if post.subtitle %}<p>{{ post.subtitle }}</p>{% endif %}
+      </article>
+    {% endfor %}
+  </div>
+{% else %}
+  <div class="empty-state">No articles published here yet. New work will appear here as it's released.</div>
+{% endif %}
