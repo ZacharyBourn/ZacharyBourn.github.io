@@ -18,7 +18,15 @@
   cover: ""
   note: "A detailed account of Roosevelt's early life and rise to national prominence."
 
-- order: 2
+  - order: 2
+  title: "Theodore Rex"
+  author: "Edmund Morris"
+  subject: "Presidential Biography"
+  isbn: "9780812966008"
+  cover: ""
+  note: "A detailed account of Roosevelt's Presidency / Time in Office."
+
+- order: 3
   title: "What Hath God Wrought"
   author: "Daniel Walker Howe"
   subject: "Nineteenth-Century America"
@@ -26,7 +34,7 @@
   cover: ""
   note: "A broad history of the United States from 1815 to 1848."
 
-- order: 3
+- order: 4
   title: "Personal Memoirs of U. S. Grant"
   author: "Ulysses S. Grant"
   subject: "Memoir / Primary Source"
